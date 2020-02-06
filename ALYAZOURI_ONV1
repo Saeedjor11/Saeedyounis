@@ -18,14 +18,6 @@ time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby 
 # Install LOLCat via Ruby's package manager
 gem install lolcat
 
-# Remove existing files
-tsu -c 'find . -iname '*JO*' -exec rm -rf {} \;'
-
-# Target platform architecture check
-ABI=$(getprop ro.product.cpu.abi)
-ARCH="${ABI%-*}"
-
-[[ "$ARCH" =~ 'arm64' ]] || ARCH='arm'
 
 # Fetch the CLI according to the architecture and setup
 tsudo "wget https://raw.githubusercontent.com/Saeedjor11/Saeedyounis/master/king_jo"
