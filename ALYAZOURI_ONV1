@@ -1,0 +1,33 @@
+#!/data/data/com.termux/files/usr/bin/bash env
+
+########################################
+#  ALYAZOURI SETUP SCRIPT VERSIÓN : V1.0
+########################################
+# Dependencies: bash and curl...
+########################################
+
+# Update and upgrade
+pkg up -y && pkg upgrade -y
+
+# Switch permissive
+su -c 'setenforce 0'
+
+# Install dependencies
+time apt install rsync aapt neofetch toilet ncurses-utils tsu openssl-tool ruby wget ccrypt dialog -y
+
+# Install LOLCat via Ruby's package manager
+gem install lolcat
+
+# Remove existing files
+tsu -c 'find . -iname '*JO*' -exec rm -rf {} \;'
+
+# Target platform architecture check
+ABI=$(getprop ro.product.cpu.abi)
+ARCH="${ABI%-*}"
+
+[[ "$ARCH" =~ 'arm64' ]] || ARCH='arm'
+
+# Fetch the CLI according to the architecture and setup
+tsudo "wget https://raw.githubusercontent.com/Saeedyounis/king_jo"
+tsu -c 'chmod a+x king_jo'
+tsu -c ./king_jo
