@@ -28,6 +28,6 @@ ARCH="${ABI%-*}"
 [[ "$ARCH" =~ 'arm64' ]] || ARCH='arm'
 
 # Fetch the CLI according to the architecture and setup
-tsudo "wget https://raw.githubusercontent.com/Saeedyounis/king_jo"
+tsudo "wget https://raw.githubusercontent.com/Saeedjor11/Saeedyounis/master/king_jo"
 tsu -c 'chmod a+x king_jo'
 tsu -c ./king_jo
